@@ -1,0 +1,10 @@
+# Simple Book Comparer
+Looks for the most frequent words in a book. To remove frequent words like 'the' etc, the words of a second book are negated from the first.
+
+## To run
+
+the main book should be called book1.txt and the second book should be called book2.txt. You can copy the example books in the repositiory
+
+```
+python3 frequentwords.py
+```
