@@ -1,9 +1,16 @@
 import argparse
 
+mainbook = 'book.txt' #default text
+book2 = 'book2.txt' #default text
+
 #parse arguments
 parser = argparse.ArgumentParser(description='comparing books for unique words')
 #parser.add_argument('main book',nargs=1,
 #               help='the filename of the main book everything will be compared to')
+parser.add_argument('--mainfile', dest='mainfile', action='store',default='No',
+               help='the name of the mainfile')
+parser.add_argument('--file2', dest='file2', action='store',
+               help='the name of the to compare',default='No')
 parser.add_argument('--count', dest='count', action='store_true',
                help='show the word counts')
 
@@ -52,18 +59,18 @@ def mergedics(ndic1,ndic2):
         newdic[n]=ndic1[n]
 
     for n in ndic2.keys():
-        if n in newdic.keys()
+        if n in newdic.keys():
             newdic[n] = (newdic[n]+ndic2[n])/2
         else:
-        newdic[n]=ndic2[n]
+            newdic[n]=ndic2[n]
 
     return newdic
 
 
-
+##fmain is filename of main book, f2 is filename of book to compare to
 def main():
     words = {}
-    words = read('book.txt')
+    words = read(mainbook)
     wordso = sorted(words,key=lambda word:words[word])
 
     #for item in wordso:
@@ -75,7 +82,7 @@ def main():
     print("word count:",wordcou(words))
 
 
-    words2= read('book2.txt')
+    words2= read(book2)
     print("word count2:",wordcou(words2))
     wordso2 = sorted(words2,key=lambda word:words2[word])
     #print("max:",words2[wordso2[-1]])
@@ -93,10 +100,15 @@ def main():
 
 
 
+if ((args.mainfile!='No')|(args.file2!='No')):
+    mainbook = args.mainfile
+    book2 = args.file2
+
+
 if args.count:
     words = {}
-    words = read('book.txt')
-    words2 = read('book2.txt')
+    words = read(mainbook)
+    words2 = read(book2)
     print("word count main book:",wordcou(words))
     print("word count compared book:",wordcou(words2))
 else:
