@@ -8,3 +8,9 @@ the main book should be called book1.txt and the second book should be called bo
 ```
 python3 frequentwords.py
 ```
+
+alternatively spcify the filenames manually
+
+```
+python3 frequentwords.py --mainfile book1.txt --file2 book2.txt
+```
