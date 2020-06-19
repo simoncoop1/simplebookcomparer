@@ -44,6 +44,23 @@ def negate(dicmain,diccom_norm):
 
     return newDic
 
+#combine 2 normalised dics
+def mergedics(ndic1,ndic2):
+    newdic = {}
+    
+    for n in ndic1.keys():
+        newdic[n]=ndic1[n]
+
+    for n in ndic2.keys():
+        if n in newdic.keys()
+            newdic[n] = (newdic[n]+ndic2[n])/2
+        else:
+        newdic[n]=ndic2[n]
+
+    return newdic
+
+
+
 def main():
     words = {}
     words = read('book.txt')
@@ -96,3 +113,5 @@ else:
 # the data of interest in lacking in comparison to the trained.
 # add comand line for not doing any negating
 # add code for having more than single second book
+
+#todo write some basic tests
